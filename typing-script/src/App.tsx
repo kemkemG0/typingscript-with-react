@@ -1,15 +1,9 @@
-import React from 'react';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+// import { Counter } from "./features/counter/Counter";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Counter />
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+  return <div className="App">Hello World!!!</div>;
+};
 
 export default App;
