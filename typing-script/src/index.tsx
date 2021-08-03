@@ -12,7 +12,9 @@ const store = configureStore({ reducer: gameSlice.reducer });
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <div className="container">
+        <App />
+      </div>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root") as HTMLElement
