@@ -1,9 +1,13 @@
 import React from "react";
-// import { Counter } from "./features/counter/Counter";
+import GameStage from "./components/GameStage";
 import "./App.css";
 
 const App: React.FC = () => {
-  return <div className="App">Hello World!!!</div>;
+  return (
+    <div className="App">
+      <GameStage />
+    </div>
+  );
 };
 
 export default App;

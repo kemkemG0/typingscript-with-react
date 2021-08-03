@@ -1,19 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { gameSlice } from "./features/game";
 import App from "./App";
+
+// ストアにReducerを登録?
+const store = configureStore({ reducer: gameSlice.reducer });
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-    <App />
-    {/* </Provider> */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("root") as HTMLElement
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
