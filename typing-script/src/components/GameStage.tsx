@@ -1,13 +1,17 @@
 import React, { useEffect, useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { game, gamedisplay, gameinfo, textblock } from "./style";
 import AlphabetLabel from "./AlphabetLabel";
 import RawStringLabel from "./RawStringLabel";
 import GameInfo from "./GameInfo";
+import { GameState, keypressed } from "../features/game";
 
 const GameStage: React.FC = () => {
+  const dispatch = useDispatch();
+  const allInputCount = useSelector((state: GameState) => state.allInputCount);
   const keyLog = useCallback((event) => {
     console.log(String.fromCharCode(event.keyCode), "is Pressed!!");
+    dispatch(keypressed(1));
   }, []);
 
   useEffect(() => {
@@ -27,6 +31,7 @@ const GameStage: React.FC = () => {
         <div style={textblock}>
           <RawStringLabel rawString="こんにちは 世界" />
           <AlphabetLabel alphabets="KONNITIHA SEKAI" ind={4} />
+          {allInputCount}
         </div>
       </div>
     </div>
