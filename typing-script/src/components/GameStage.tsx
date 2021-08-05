@@ -8,7 +8,6 @@ import { GameState, keypressed } from "../features/game";
 
 const GameStage: React.FC = () => {
   const dispatch = useDispatch();
-  const allInputCount = useSelector((state: GameState) => state.allInputCount);
   const keyLog = useCallback((event) => {
     console.log(String.fromCharCode(event.keyCode), "is Pressed!!");
 
@@ -36,7 +35,6 @@ const GameStage: React.FC = () => {
         <div style={textblock}>
           <RawStringLabel />
           <AlphabetLabel />
-          {allInputCount}
         </div>
       </div>
     </div>

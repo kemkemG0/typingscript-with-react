@@ -7,6 +7,7 @@ export interface GameState {
   alphabetString: string;
   listeningCharIndex: number;
   allInputCount: number;
+  doneCharCount: number;
 }
 
 const contents: string[][] = [
@@ -24,6 +25,7 @@ const initialState: GameState = {
   alphabetString: contents[0][1],
   listeningCharIndex: 0,
   allInputCount: 0,
+  doneCharCount: 0,
 };
 
 // createSliceとは、actionの定義とaction creator,reducerをまとめて生成できる。
@@ -36,13 +38,17 @@ export const gameSlice = createSlice({
       const listeningChar = state.alphabetString[state.listeningCharIndex];
 
       // Redux Tool Kitではstateを直接変更してもOK！！
-
       state.allInputCount += 1;
-      state.listeningCharIndex += 1;
-      if (String.fromCharCode(pressedKeyCode) === listeningChar) {
-        console.log("listing ", listeningChar, " and OK.");
-      }
 
+      if (String.fromCharCode(pressedKeyCode) === listeningChar) {
+        state.listeningCharIndex += 1;
+        state.doneCharCount += 1;
+      }
+      if (state.listeningCharIndex === state.alphabetString.length) {
+        state.listeningCharIndex = 0;
+        state.contentsID += 1;
+        [state.rawString, state.alphabetString] = contents[state.contentsID];
+      }
       return state;
     },
   },
