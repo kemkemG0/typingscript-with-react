@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import React from "react";
-import { Box } from "@material-ui/core";
 import GameStage from "./components/GameStage";
 import "./App.css";
 import { GameState } from "./features/game";

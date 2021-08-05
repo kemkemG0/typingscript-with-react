@@ -1,15 +1,12 @@
 import React, { useCallback, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { changeDisplayType, GameState } from "../features/game";
-import { game, gamedisplay, gameinfo, textblock } from "./style";
+import { useDispatch } from "react-redux";
+import { changeDisplayType } from "../features/game";
+import { game, gamedisplay, textblock } from "./style";
 
 const InitialStage: React.FC = () => {
   const dispatch = useDispatch();
 
-  const displayType = useSelector((state: GameState) => state.displayType);
-
   const keyLog = useCallback((event) => {
-    console.log(String.fromCharCode(event.keyCode), "is Pressed!!");
     const payload = "GAME";
     if (event.keyCode === 32 || event.keyCode === 13)
       dispatch(changeDisplayType(payload));

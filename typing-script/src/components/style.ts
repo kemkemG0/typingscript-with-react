@@ -1,3 +1,5 @@
+import React from "react";
+
 export const game: React.CSSProperties = {
   padding: "0.5em",
   borderRadius: "1em",
@@ -20,7 +22,11 @@ export const gamedisplay: React.CSSProperties = {
   top: "50%",
   left: "50%",
 };
-
+export const times: React.CSSProperties = {
+  position: "absolute",
+  margin: "0.1rem",
+  padding: "1.5rem",
+};
 export const textblock: React.CSSProperties = {
   letterSpacing: "5px",
   position: "absolute",

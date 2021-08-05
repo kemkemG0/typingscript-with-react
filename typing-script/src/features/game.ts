@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface GameState {
   contentsID: number;
@@ -9,6 +9,7 @@ export interface GameState {
   allInputCount: number;
   doneCharCount: number;
   displayType: "INIT" | "GAME" | "RESULT";
+  timeCount: number;
 }
 
 const contents: string[][] = [
@@ -28,6 +29,7 @@ const initialState: GameState = {
   allInputCount: 0,
   doneCharCount: 0,
   displayType: "INIT",
+  timeCount: 0,
 };
 
 // createSliceとは、actionの定義とaction creator,reducerをまとめて生成できる。
@@ -57,9 +59,16 @@ export const gameSlice = createSlice({
       }
     },
     changeDisplayType: (state, action) => {
-      state.displayType = action.payload;
+      if (action.payload === "INIT") {
+        state = initialState;
+      } else state.displayType = action.payload;
+      return state;
+    },
+    setTimeCount: (state, action) => {
+      state.timeCount = action.payload;
     },
   },
 });
 
-export const { keypressed, changeDisplayType } = gameSlice.actions;
+export const { keypressed, changeDisplayType, setTimeCount } =
+  gameSlice.actions;
