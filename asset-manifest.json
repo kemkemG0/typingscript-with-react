@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/typingscript-with-react/static/css/main.ceac6349.chunk.css",
+    "main.js": "/typingscript-with-react/static/js/main.4105fc23.chunk.js",
+    "main.js.map": "/typingscript-with-react/static/js/main.4105fc23.chunk.js.map",
+    "runtime-main.js": "/typingscript-with-react/static/js/runtime-main.c6aa1571.js",
+    "runtime-main.js.map": "/typingscript-with-react/static/js/runtime-main.c6aa1571.js.map",
+    "static/js/2.8cd83dee.chunk.js": "/typingscript-with-react/static/js/2.8cd83dee.chunk.js",
+    "static/js/2.8cd83dee.chunk.js.map": "/typingscript-with-react/static/js/2.8cd83dee.chunk.js.map",
+    "index.html": "/typingscript-with-react/index.html",
+    "static/css/main.ceac6349.chunk.css.map": "/typingscript-with-react/static/css/main.ceac6349.chunk.css.map",
+    "static/js/2.8cd83dee.chunk.js.LICENSE.txt": "/typingscript-with-react/static/js/2.8cd83dee.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c6aa1571.js",
+    "static/js/2.8cd83dee.chunk.js",
+    "static/css/main.ceac6349.chunk.css",
+    "static/js/main.4105fc23.chunk.js"
+  ]
+}
