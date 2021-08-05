@@ -8,6 +8,7 @@ export interface GameState {
   listeningCharIndex: number;
   allInputCount: number;
   doneCharCount: number;
+  displayType: "INIT" | "GAME" | "RESULT";
 }
 
 const contents: string[][] = [
@@ -26,6 +27,7 @@ const initialState: GameState = {
   listeningCharIndex: 0,
   allInputCount: 0,
   doneCharCount: 0,
+  displayType: "INIT",
 };
 
 // createSliceとは、actionの定義とaction creator,reducerをまとめて生成できる。
@@ -47,11 +49,17 @@ export const gameSlice = createSlice({
       if (state.listeningCharIndex === state.alphabetString.length) {
         state.listeningCharIndex = 0;
         state.contentsID += 1;
-        [state.rawString, state.alphabetString] = contents[state.contentsID];
+        if (state.contentsID !== contents.length)
+          [state.rawString, state.alphabetString] = contents[state.contentsID];
+        else {
+          state.displayType = "RESULT";
+        }
       }
-      return state;
+    },
+    changeDisplayType: (state, action) => {
+      state.displayType = action.payload;
     },
   },
 });
 
-export const { keypressed } = gameSlice.actions;
+export const { keypressed, changeDisplayType } = gameSlice.actions;
