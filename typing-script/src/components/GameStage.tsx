@@ -11,7 +11,12 @@ const GameStage: React.FC = () => {
   const allInputCount = useSelector((state: GameState) => state.allInputCount);
   const keyLog = useCallback((event) => {
     console.log(String.fromCharCode(event.keyCode), "is Pressed!!");
-    dispatch(keypressed(1));
+
+    const payload: { pressedKeyCode: number } = {
+      pressedKeyCode: event.keyCode,
+    };
+
+    dispatch(keypressed(payload));
   }, []);
 
   useEffect(() => {
@@ -25,12 +30,12 @@ const GameStage: React.FC = () => {
   return (
     <div style={game}>
       <div style={gameinfo}>
-        <GameInfo result={75} />
+        <GameInfo />
       </div>
       <div style={gamedisplay}>
         <div style={textblock}>
-          <RawStringLabel rawString="こんにちは 世界" />
-          <AlphabetLabel alphabets="KONNITIHA SEKAI" ind={4} />
+          <RawStringLabel />
+          <AlphabetLabel />
           {allInputCount}
         </div>
       </div>

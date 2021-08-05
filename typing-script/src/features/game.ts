@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface GameState {
@@ -21,7 +22,7 @@ const initialState: GameState = {
   contentsID: 0,
   rawString: contents[0][0],
   alphabetString: contents[0][1],
-  listeningCharIndex: 3,
+  listeningCharIndex: 0,
   allInputCount: 0,
 };
 
@@ -31,21 +32,18 @@ export const gameSlice = createSlice({
   initialState,
   reducers: {
     keypressed: (state, action) => {
-      // ここでいろんな実装を行う
-      /*
-        --やる実装--
-          --押されたキーの正誤判定
-          (--正答率は表示部分で計算したほうが良い気がする)
+      const { pressedKeyCode } = action.payload;
+      const listeningChar = state.alphabetString[state.listeningCharIndex];
 
-          次の文字に進む処理
-          それが最後の文字だったら、次の文字列に進む処理
-      */
+      // Redux Tool Kitではstateを直接変更してもOK！！
 
-      const newState = {
-        ...state,
-        allInputCount: state.allInputCount + action.payload,
-      };
-      return newState;
+      state.allInputCount += 1;
+      state.listeningCharIndex += 1;
+      if (String.fromCharCode(pressedKeyCode) === listeningChar) {
+        console.log("listing ", listeningChar, " and OK.");
+      }
+
+      return state;
     },
   },
 });

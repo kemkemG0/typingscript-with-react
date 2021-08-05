@@ -1,10 +1,8 @@
 import React from "react";
 
-interface Props {
-  result: number;
-}
-const GameInfo: React.FC<Props> = (props) => {
-  const { result = 75 } = props;
+const GameInfo: React.FC = () => {
+  // const result = calcResult();
+  const result = 75;
   return <div>正答率は{result}%です</div>;
 };
 
