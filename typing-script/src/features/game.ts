@@ -12,12 +12,12 @@ export interface GameState {
 }
 
 const contents: string[][] = [
-  ["こんにちは世界", "KONNITIHASEKAI"],
-  ["22こんにちは世界22", "22KONNITIHASEKAI22"],
-  ["33こんにちは世界33", "33KONNITIHASEKAI33"],
-  ["44こんにちは世界44", "44KONNITIHASEKAI44"],
-  ["55こんにちは世界55", "55KONNITIHASEKAI55"],
-  ["66こんにちは世界66", "66KONNITIHASEKAI66"],
+  ["こんにちは世界", "KONNNITIHASEKAI"],
+  ["22こんにちは世界22", "22KONNNITIHASEKAI22"],
+  ["33こんにちは世界33", "33KONNNITIHASEKAI33"],
+  ["44こんにちは世界44", "44KONNNITIHASEKAI44"],
+  ["55こんにちは世界55", "55KONNNITIHASEKAI55"],
+  ["66こんにちは世界66", "66KONNNITIHASEKAI66"],
 ];
 
 const initialState: GameState = {

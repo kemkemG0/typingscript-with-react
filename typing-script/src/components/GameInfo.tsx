@@ -7,7 +7,7 @@ const GameInfo: React.FC = () => {
   const okCount = useSelector((state: GameState) => state.doneCharCount);
 
   const result = (okCount / allCount) * 100 || 0;
-  return <div>正答率は{result.toFixed(2)}%です</div>;
+  return <div>正答率は{result.toFixed(4)}%です</div>;
 };
 
 export default GameInfo;
