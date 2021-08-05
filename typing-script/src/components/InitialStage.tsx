@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeDisplayType, GameState } from "../features/game";
+import { game, gamedisplay, gameinfo, textblock } from "./style";
 
 const InitialStage: React.FC = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,13 @@ const InitialStage: React.FC = () => {
     };
   }, []);
 
-  return <div>初期画面です！</div>;
+  return (
+    <div style={game}>
+      <div style={gamedisplay}>
+        <div style={textblock}>SpaceまたはEnterを押してください</div>
+      </div>
+    </div>
+  );
 };
 
 export default InitialStage;
